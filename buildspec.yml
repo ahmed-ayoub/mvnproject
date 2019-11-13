@@ -6,15 +6,8 @@ phases:
   build: 
     commands: 
       - echo Build started on `date` 
-      - echo Building the Docker image...
+      - echo Building the JAR file...
       - mvn package
-  post_build: 
-    commands: 
-      - echo Build completed on `date` 
-      - echo Pushing the Docker image... 
-      - docker push $REPOSITORY_URI:$IMAGE_TAG 
-      - printf '[{"name":"%s","imageUri":"%s"}]' "standardbank-backend" "$REPOSITORY_URI:$IMAGE_TAG" | tee imagedefinitions.json 
- 
 artifacts: 
   files: 
     - my-app-1.0-SNAPSHOT.jar
