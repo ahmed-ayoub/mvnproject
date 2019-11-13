@@ -9,6 +9,5 @@ phases:
       - echo Building the JAR file...
       - mvn package
 artifacts: 
-  files: 
-    - my-app-1.0-SNAPSHOT.jar
+  files:
   discard-paths: yes 
