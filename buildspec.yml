@@ -7,8 +7,9 @@ phases:
     commands: 
       - echo Build started on `date` 
       - echo Building the JAR file...
+      - mvn sonar:sonar -Dsonar.login=ca60797bbd859cf11d5e3cfd6efce06ea86cd87b -Dsonar.host.url=http://63.33.207.154:9000
       - mvn package
 artifacts: 
   files:
       - target/my-app-1.0-RELEASE.jar
-  discard-paths: yes 
+  discard-paths: yes
