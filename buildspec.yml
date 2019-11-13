@@ -10,5 +10,5 @@ phases:
       - mvn package
 artifacts: 
   files:
-      - target/my-app-1.0-SNAPSHOT.jar
+      - target/my-app-1.0-RELEASE.jar
   discard-paths: yes 
