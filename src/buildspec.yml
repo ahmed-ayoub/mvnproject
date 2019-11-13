@@ -1,0 +1,21 @@
+version: 0.2  
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+  build: 
+    commands: 
+      - echo Build started on `date` 
+      - echo Building the Docker image...
+      - mvn package
+  post_build: 
+    commands: 
+      - echo Build completed on `date` 
+      - echo Pushing the Docker image... 
+      - docker push $REPOSITORY_URI:$IMAGE_TAG 
+      - printf '[{"name":"%s","imageUri":"%s"}]' "standardbank-backend" "$REPOSITORY_URI:$IMAGE_TAG" | tee imagedefinitions.json 
+ 
+artifacts: 
+  files: 
+    - my-app-1.0-SNAPSHOT.jar
+  discard-paths: yes 
